@@ -1,10 +1,16 @@
 <?php
-include 'Connect_DB.php';
-include '../Model/User.php';
-include 'SessionManager.php';
-
-class UserController {
+class UserDB{
     private User $user;
+    
+    public function __construct(User $user)
+    {
+        if(is_null($user))
+        {
+            $this->user = NULL;
+        } else {
+            $this->user = $user;
+        }
+    }
 
     public function SelectAllUsers(): void
     {
@@ -41,7 +47,5 @@ class UserController {
         } else
             return false;
     }
-
-
 }
 ?>

@@ -1,26 +1,32 @@
 <?php
 class User {
     private int $id;
-    private string $nome;
+    private string $name;
     private string $email;
     private string $password;
-    private int $cargo;
+    private int $role;
 
-    public function __construct(?array $arrayUsers, ?string $email = "", ?string $password = "", ?int $id = -1, ?string $nome = "", ?int $cargo = -1)
+    public function __construct(
+        ?array $arrayUsers,
+        ?string $email = "",
+        ?string $password = "",
+        ?int $id = -1,
+        ?string $name = "",
+        ?int $role = -1)
     {
         if(count($arrayUsers) > 0)
         {
             $this->id = $arrayUsers['id'];
-            $this->nome = $arrayUsers['nome'];
+            $this->name = $arrayUsers['name'];
             $this->email = $arrayUsers['email'];
             $this->password = $arrayUsers['password'];
-            $this->cargo = $arrayUsers['cargo'];
+            $this->role = $arrayUsers['role'];
         } else {
             $this->id = $id;
-            $this->nome = $nome;
+            $this->name = $name;
             $this->email = $email;
             $this->password = $password;
-            $this->cargo = $cargo;
+            $this->role = $role;
         }
     }
 
@@ -29,9 +35,9 @@ class User {
         return $this->id;
     }
 
-    public function getNome(): string
+    public function getName(): string
     {
-        return $this->nome;
+        return $this->name;
     }
 
     public function getEmail(): string
@@ -44,22 +50,22 @@ class User {
         return $this->password;
     }
 
-    public function getCargo(): int
+    public function getRole(): int
     {
-        switch ($this->cargo)
+        switch ($this->role)
         {
             case 1:
-                return "Cliente"; 
+                return "Customer";
             case 2:
                 return "Admin";
             default:
-                return "Não existente";
+                return "Nonexistent";
         }
     }
 
-    public function setNome(string $nome): void
+    public function setName(string $name): void
     {
-        $this->nome = $nome;
+        $this->name = $name;
     }
 
     public function setEmail(string $email): void
@@ -72,26 +78,26 @@ class User {
         $this->password = $password;
     }
 
-    public function setCargo(int $cargo): void
+    public function setRole(int $role): void
     {
-        $this->cargo = $cargo;
+        $this->role = $role;
     }
 
     public function __toString()
     {
-        return "Nome => ".$this->getNome().
+        return "Name => ".$this->getName().
         "<br/>E-mail => ".$this->getEmail().
-        "<br/>Senha => ".$this->getPassword().
-        "<br/>Cargo => ".$this->getCargo();
+        "<br/>Password => ".$this->getPassword().
+        "<br/>Role => ".$this->getRole();
     }
 
     public function toArray(): array {
         return [
             'id' => $this->id,
-            'nome' => $this->nome,
+            'name' => $this->name,
             'email' => $this->email,
             'password' => $this->password,
-            'cargo' => $this->cargo,
+            'role' => $this->role,
         ];
     }
 }
