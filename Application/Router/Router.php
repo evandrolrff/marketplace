@@ -12,6 +12,7 @@ class Router {
         $this->addRoute('/cart', 'Application/Views/cart.php');
         $this->addRoute('/info', 'Application/Views/info.php');
         $this->addRoute('/login', 'Application/Views/login.php');
+        $this->addRoute('/products', 'Application/Views/products.php');
         $this->addRoute('/product', 'Application/Views/product.php');
     }
 
