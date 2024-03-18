@@ -7,6 +7,7 @@ class Router {
     public function __construct()
     {
         $this->addRoute('/', 'Application/Views/home.php');
+        $this->addRoute('/home', 'Application/Views/home.php');
         $this->addRoute('/admin', 'Application/Views/admin.php');
         $this->addRoute('/cart', 'Application/Views/cart.php');
         $this->addRoute('/info', 'Application/Views/info.php');
