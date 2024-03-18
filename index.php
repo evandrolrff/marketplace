@@ -1,27 +1,48 @@
 <?php
-function Utils(): string{
-    $pages = array('home', 'produtos', 'carrinho', 'login', 'admin', 'info'); 
-    $page = isset($_GET['content']) && in_array($_GET['content'], $pages)? $_GET['content'] : 'home';
+
+require_once 'Application/Router/Route.php';
+require_once 'Application/Router/Router.php';
+
+function Utils(): string
+{
+    $pages = array('home', 'product', 'cart', 'login', 'admin', 'info'); 
+    $uri = "";
+    
+    if(isset($_SERVER['REQUEST_URI']))
+    {
+        $uri = explode('trabalho/', $_SERVER['REQUEST_URI']);
+        $uri = $uri[array_key_last($uri)];
+    }
+    else
+    {
+        return '';
+    }
+    
+    $page = in_array($uri, $pages)? $uri : '';
 
     return $page;
 }
 
-function abaAtiva(bool $flag): string{
-    if($flag){
+function abaAtiva(bool $flag): string
+{
+    if($flag)
+    {
         return "class='nav-link active' aria-current='page'";
-    } else {
+    } 
+    else
+    {
         return "class='nav-link'";
     }
 }
 
-$files = ["header.php", "content.php", "footer.php"];
 $filesFounded = array_filter(
-    $files,
+    ["header.php", "content.php", "footer.php"],
     function ($file) {
         return file_exists($file);
     }
 );
-foreach ($filesFounded as $file) {
-    include $file;
+foreach ($filesFounded as $file) 
+{
+    require_once $file;
 }
 ?>
