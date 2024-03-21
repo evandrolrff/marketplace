@@ -5,7 +5,7 @@ require_once 'Application/Router/Router.php';
 
 function Utils(): string
 {
-    $pages = array('home', 'product', 'cart', 'login', 'admin', 'info'); 
+    $pages = array('home', 'products', 'cart', 'login', 'admin', 'info'); 
     $uri = "";
     
     if(isset($_SERVER['REQUEST_URI']))
@@ -18,7 +18,7 @@ function Utils(): string
         return '';
     }
     
-    $page = in_array($uri, $pages)? $uri : '';
+    $page = in_array($uri, $pages)? $uri : 'home';
 
     return $page;
 }

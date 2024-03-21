@@ -10,7 +10,7 @@
     $uri = $uri[array_key_last($uri)];
 
     // Gets the request URL
-    $url = isset($uri) ? $uri : '/';
+    $url = isset($uri) ? $uri : '/home';
 
     $response = $router->route($url);
 
