@@ -2,6 +2,7 @@
 class User {
     private int $id;
     private string $name;
+    private string $username;
     private string $email;
     private string $password;
     private int $role;
@@ -12,18 +13,21 @@ class User {
         ?string $password = "",
         ?int $id = -1,
         ?string $name = "",
+        ?string $username = "",
         ?int $role = -1)
     {
         if(count($arrayUsers) > 0)
         {
             $this->id = $arrayUsers['id'];
             $this->name = $arrayUsers['name'];
+            $this->username = $arrayUsers['username'];
             $this->email = $arrayUsers['email'];
             $this->password = $arrayUsers['password'];
             $this->role = $arrayUsers['role'];
         } else {
             $this->id = $id;
             $this->name = $name;
+            $this->username = $username;
             $this->email = $email;
             $this->password = $password;
             $this->role = $role;
@@ -38,6 +42,11 @@ class User {
     public function getName(): string
     {
         return $this->name;
+    }
+    
+    public function getUsername(): string
+    {
+        return $this->username;
     }
 
     public function getEmail(): string
@@ -67,6 +76,11 @@ class User {
     {
         $this->name = $name;
     }
+    
+    public function setUsername(string $username): void
+    {
+        $this->username = $username;
+    }
 
     public function setEmail(string $email): void
     {
@@ -86,6 +100,7 @@ class User {
     public function __toString()
     {
         return "Name => ".$this->getName().
+        "<br/>Usename => ".$this->getUsername().
         "<br/>E-mail => ".$this->getEmail().
         "<br/>Password => ".$this->getPassword().
         "<br/>Role => ".$this->getRole();
@@ -94,6 +109,7 @@ class User {
     public function toArray(): array {
         return [
             'id' => $this->id,
+            'username' => $this->username,
             'name' => $this->name,
             'email' => $this->email,
             'password' => $this->password,
