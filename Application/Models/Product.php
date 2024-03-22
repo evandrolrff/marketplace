@@ -16,7 +16,7 @@ class Product {
         ?int $id = -1,
         ?string $description = "")
     {
-        if(count($arrayProducts) > 0) //change count to empty($arrayProducts)
+        if(!empty($arrayProducts)) //change count to empty($arrayProducts)
         {
             $this->id = $arrayProducts['id'];
             $this->name = $arrayProducts['name'];

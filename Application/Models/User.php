@@ -6,6 +6,7 @@ class User {
     private string $email;
     private string $password;
     private int $role;
+    public array $roles = array('Admin', 'Customer', 'Nonexistent');
 
     public function __construct(
         ?array $arrayUsers,
@@ -16,7 +17,7 @@ class User {
         ?string $username = "",
         ?int $role = -1)
     {
-        if(count($arrayUsers) > 0)
+        if(!empty($arrayUsers))
         {
             $this->id = $arrayUsers['id'];
             $this->name = $arrayUsers['name'];
@@ -61,15 +62,7 @@ class User {
 
     public function getRole(): int
     {
-        switch ($this->role)
-        {
-            case 1:
-                return "Customer";
-            case 2:
-                return "Admin";
-            default:
-                return "Nonexistent";
-        }
+        return $this->roles[$this->role];
     }
 
     public function setName(string $name): void
