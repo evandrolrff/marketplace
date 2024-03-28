@@ -2,19 +2,24 @@
 require_once 'Route.php';
 
 class Router {
-    private $routes = [];
-
+    private array $routes = [];
+    
     public function __construct()
     {
-        $this->addRoute('/', 'Application/Views/home.php');
-        $this->addRoute('/home', 'Application/Views/home.php');
-        $this->addRoute('/admin', 'Application/Views/admin.php');
-        $this->addRoute('/cart', 'Application/Views/cart.php');
-        $this->addRoute('/info', 'Application/Views/info.php');
-        $this->addRoute('/login', 'Application/Views/login.php');
-        $this->addRoute('/signup', 'Application/Views/signup.php');
-        $this->addRoute('/products', 'Application/Views/products.php');
-        $this->addRoute('/product', 'Application/Views/product.php');
+        $this->addRoute('/', 'Application/Views/Home.php');
+        $this->addRoute('/home', 'Application/Views/Home.php');
+        $this->addRoute('/admin', 'Application/Views/Admin.php');
+        $this->addRoute('/cart', 'Application/Views/Cart.php');
+        $this->addRoute('/info', 'Application/Views/Info.php');
+        $this->addRoute('/login', 'Application/Views/Login.php');
+        $this->addRoute('/signup', 'Application/Views/Signup.php');
+        
+        // Products routes
+        $this->addRoute('/products', 'Application/Views/Products/Products.php');
+        $this->addRoute('/product', 'Application/Views/Products/Product.php');
+
+        // Users routes
+        $this->addRoute('/AddNewUser', 'Application/Views/User/UserInformation.php');
     }
 
     public function addRoute(string $pattern, string $handler): void
@@ -33,4 +38,21 @@ class Router {
         }
         return "404 Not Found";
     }
+
+    // private function getAction(string $url): string
+    // {
+    //     $action = array_shift(explode($this->separatorAction, $url));
+    //     return $action;
+    // }
+
+    // private function getParams(string $url): array
+    // {
+    //     $actionIdx = strpos($url, $this->separatorAction);
+    //     if ($actionIdx === false)
+    //     {
+    //         $paramsIdx = strpos()
+    //         if()
+    //     }
+    //     return explode($this->separator);
+    // }
 }
