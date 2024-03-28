@@ -21,7 +21,8 @@
     }
     else
     {
-        echo "404 Not Found";
+        include($response);
+        http_response_code(404);
     }
     ?>
 </div>

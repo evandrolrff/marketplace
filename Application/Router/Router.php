@@ -3,7 +3,8 @@ require_once 'Route.php';
 
 class Router {
     private array $routes = [];
-    
+    private string $route404 = 'Application/Views/404.php';
+        
     public function __construct()
     {
         $this->addRoute('/', 'Application/Views/Home.php');
@@ -36,7 +37,8 @@ class Router {
                 return $route->run($url);
             }
         }
-        return "404 Not Found";
+
+        return $this->route404;
     }
 
     // private function getAction(string $url): string
