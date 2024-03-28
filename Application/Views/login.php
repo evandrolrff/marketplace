@@ -4,11 +4,11 @@
             <h1 class="h3 mb-3 fw-normal">Login</h1>
 
             <div class="form-floating">
-                <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+                <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com" autocomplete="off" required>
                 <label for="floatingInput">Email</label>
             </div>
             <div class="form-floating">
-                <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+                <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password" autocomplete="off" required>
                 <label for="floatingPassword">Password</label>
             </div>
 
