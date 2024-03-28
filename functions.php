@@ -4,13 +4,13 @@ function MakeHeader(): string
 {
     $pages = array('home', 'products', 'cart', 'login', 'admin', 'info'); 
     
-    $uri = get_url();if(isset($_SERVER['REQUEST_URI']));
+    $uri = get_url();
 
-    if ($uri == '') 
+    if ($uri == '' || $uri == '/') 
         return $uri;
     
+    $uri = substr($uri, 1);
     $page = in_array($uri, $pages)? $uri : 'home';
-
     return $page;
 }
 

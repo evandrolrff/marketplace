@@ -13,13 +13,13 @@ class Router {
         $this->addRoute('/cart', 'Application/Views/Cart.php');
         $this->addRoute('/info', 'Application/Views/Info.php');
         $this->addRoute('/login', 'Application/Views/Login.php');
-        $this->addRoute('/signup', 'Application/Views/Signup.php');
         
         // Products routes
         $this->addRoute('/products', 'Application/Views/Products/Products.php');
         $this->addRoute('/product', 'Application/Views/Products/Product.php');
-
+        
         // Users routes
+        $this->addRoute('/signup', 'Application/Views/User/Signup.php');
         $this->addRoute('/AddNewUser', 'Application/Views/User/UserInformation.php');
     }
 
