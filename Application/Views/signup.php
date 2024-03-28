@@ -1,11 +1,6 @@
-<?php
-    require_once 'Application/Models/User.php';
-
-    $user = new User(null);
-?>
 <div class="container text-start">
     <h2>User registration</h2>
-    <form class="needs-validation" novalidate>
+    <form method="post" class="needs-validation" action="AddNewUser" novalidate>
         <div class="row g-3">
             <div class="col-sm-6">
                 <label for="username" class="form-label">Username</label>
@@ -41,22 +36,6 @@
                     Please enter a password valid.
                 </div>
             </div>
-
-            <div class="col-md-6">
-                <label for="role" class="form-label">Role</label>
-                <select class="form-select" id="role" required="">
-                    <option value="">Choose...</option>
-                    <?php
-                    foreach ($user->roles as $index => $role) {
-                        echo '<option value="' . $index . '">' . $role . '</option>';
-                    }
-                    ?>
-                </select>
-                <div class="invalid-feedback">
-                    Please select a valid role.
-                </div>
-            </div>
-
         </div>
         <div class="form-check">
             <input type="checkbox" class="form-check-input" id="same-address">

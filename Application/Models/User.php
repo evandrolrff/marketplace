@@ -6,7 +6,7 @@ class User {
     private string $email;
     private string $password;
     private int $role;
-    public array $roles = array('Admin', 'Customer', 'Nonexistent');
+    public array $roles = array('Admin', 'Maintainer', 'Customer', 'Nonexistent');
 
     public function __construct(
         ?array $arrayUsers,
