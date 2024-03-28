@@ -1,8 +1,8 @@
 <?php
 
 class Route {
-    private $pattern;
-    private $handler;
+    private string $pattern;
+    private string $handler;
 
     public function __construct(string $pattern, string $handler) 
     {
@@ -10,7 +10,7 @@ class Route {
         $this->handler = $handler;
     }
 
-    public function match(string $url) : bool
+    public function match(string $url): bool
     {
         return preg_match("#^{$this->pattern}$#", $url);
     }
