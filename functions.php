@@ -1,19 +1,13 @@
 <?php
 
-function Utils(): string
+function MakeHeader(): string
 {
     $pages = array('home', 'products', 'cart', 'login', 'admin', 'info'); 
-    $uri = "";
     
-    if(isset($_SERVER['REQUEST_URI']))
-    {
-        $uri = explode('trabalho/', $_SERVER['REQUEST_URI']);
-        $uri = $uri[array_key_last($uri)];
-    }
-    else
-    {
-        return '';
-    }
+    $uri = get_url();if(isset($_SERVER['REQUEST_URI']));
+
+    if ($uri == '') 
+        return $uri;
     
     $page = in_array($uri, $pages)? $uri : 'home';
 
@@ -32,7 +26,21 @@ function abaAtiva(bool $flag): string
     }
 }
 
-function dump_informations($value)
+function get_url(): string
+{
+    if(isset($_SERVER['REQUEST_URI']))
+    {
+        $uri = explode('trabalho', $_SERVER['REQUEST_URI']);
+        $uri = $uri[array_key_last($uri)];
+        return $uri;
+    }
+    else
+    {
+        return '';
+    }
+}
+
+function dump_informations(array $value): void
 {
     echo "<pre>" . var_dump($value) . "</pre>";
     die();

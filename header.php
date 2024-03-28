@@ -18,7 +18,7 @@
          require_once 'Application/Configs/SessionManager.php';
 
         $session = new SessionManager();
-        $content = utils();
+        $content = MakeHeader();
         $session->startSession();
         $array = $session->checkSession("email") ? array('home', 'products', 'cart') : array('home', 'products', 'cart', 'login');
       
