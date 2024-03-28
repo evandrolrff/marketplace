@@ -41,20 +41,29 @@ class Router {
         return $this->route404;
     }
 
-    // private function getAction(string $url): string
-    // {
-    //     $action = array_shift(explode($this->separatorAction, $url));
-    //     return $action;
-    // }
+    public function get()
+    {
 
-    // private function getParams(string $url): array
-    // {
-    //     $actionIdx = strpos($url, $this->separatorAction);
-    //     if ($actionIdx === false)
-    //     {
-    //         $paramsIdx = strpos()
-    //         if()
-    //     }
-    //     return explode($this->separator);
-    // }
+        
+    }
+
+    public function post()
+    {
+
+    }
+
+    public function delete()
+    {
+
+    }
+
+    public function patch()
+    {
+
+    }
+
+    public function put()
+    {
+        
+    }
 }
